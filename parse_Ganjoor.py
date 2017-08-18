@@ -101,7 +101,7 @@ def get_poem(link):
 	# check if the page contains audi file
 	cdata = soup.find(text=re.compile("CDATA"))
 	audio = 'https://i.ganjoor.net/a/'+poem_id+'.ogg'
-	if cdata and (audio not in cdata):
+	if (cdata == None) or (audio not in cdata):
 		audio = None
 	# retuned the parsed items
 	return poem_id, title, poem, audio
